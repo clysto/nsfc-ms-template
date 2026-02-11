@@ -1,0 +1,103 @@
+\documentclass[12pt,fontset=none]{ctexart}
+
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+% 颜色定义
+\definecolor{red}{RGB}{255,30,30}
+\definecolor{blue}{RGB}{0,112,192}
+
+% 页样式定义
+\geometry{a4paper,left=3cm,right=3cm,top=2.54cm,bottom=2.54cm}
+\pagestyle{empty}
+
+% 字体定义
+\setmainfont{Times New Roman}
+\setCJKmainfont[AutoFakeBold=3,Path=fonts/]{Simsun.ttc}
+
+\setCJKfamilyfont{zhkai}[AutoFakeBold=3,Path=fonts/]{Kaiti.ttf}
+\newfontfamily\enkai[AutoFakeBold=3,Path=fonts/]{Kaiti.ttf}
+
+\setCJKfamilyfont{zhhei}[AutoFakeBold=3,Path=fonts/]{SimHei.ttf}
+\newfontfamily\enhei[AutoFakeBold=3,Path=fonts/]{SimHei.ttf}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold=3,Path=fonts/]{Simsun.ttc}
+\newfontfamily\ensong[AutoFakeBold=3,Path=fonts/]{Simsun.ttc}
+
+% 标题样式定义
+\ctexset{
+  part = {
+    name        = {},
+    number      = {\bfseries（\chinese{part}）},
+    format      = \color{blue}\zihao{4}\kaishu\bfseries,
+    aftername={},
+    hang=false,
+    indent=0.74cm,
+    beforeskip=0pt,
+    afterskip=0pt,
+  },
+  section = {
+    format={\color{blue}\zihao{4}\kaishu\bfseries},
+    name={},
+    number={\bfseries\arabic{section}},
+    aftername={.\enspace},
+    hang=false,
+    indent=2em,
+    beforeskip=0pt,
+    afterskip=0pt,
+  },
+  subsection = {
+    format={\zihao{4}\bfseries\kaishu\bfseries},
+    name={},
+    number={\arabic{section}.\arabic{subsection}},
+    aftername={.\enspace},
+    hang=false,
+    indent=2em,
+    beforeskip=0pt,
+    afterskip=0pt,
+  },
+  subsubsection = {
+    format={\zihao{4}\bfseries\kaishu\bfseries},
+    name={},
+    number={\arabic{section}.\arabic{subsection}.\arabic{subsubsection}},
+    aftername={.\enspace},
+    hang=false,
+    indent=2em,
+    beforeskip=0pt,
+    afterskip=0pt,
+  },
+}
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+% 精细调整
+\xeCJKsetup{CJKecglue=\hskip 3pt}
+\setstretch{1.5}
+
+% 自定义指令
+\newcommand{\kaishu}{\CJKfamily{zhkai}\enkai}
+\newcommand{\heiti}{\CJKfamily{zhhei}\enhei}
+\newcommand{\songti}{\CJKfamily{zhsong}}
+
+\newcommand{\titlehint}[1]{\mdseries #1}
+
+\begin{document}
+
+\begin{center}
+  \kaishu\zihao{3}\bfseries 报告正文（2026版）
+\end{center}
+
+{
+  \kaishu\zihao{4} 参照以下提纲撰写，要求内容翔实、清晰，层次分明，标题突出。%
+  \textcolor{red}{\bfseries 申请书正文原则上不超过30页，鼓励简洁表达。}%
+  \textcolor{blue}{\bfseries 请勿删除或改动下述提纲标题及括号中的文字。}
+}
+~
+\input{content/01-立项依据}
+\input{content/02-研究内容}
+\input{content/03-研究基础}
+\input{content/04-其他需要说明的情况}
+\end{document}
